@@ -1,0 +1,49 @@
+:root {
+    --bg: #0a0a0a;
+    --red: #ff3131;
+    --panel: #121212;
+    --font: 'Courier Prime', monospace;
+}
+
+body { margin: 0; background: var(--bg); color: #fff; font-family: var(--font); overflow-x: hidden; }
+
+#app-container { display: flex; flex-wrap: wrap; max-width: 1000px; margin: 20px auto; gap: 20px; padding: 10px; }
+.hidden { display: none !important; }
+
+.visual-panel, .narrative-panel { flex: 1; min-width: 320px; background: var(--panel); padding: 20px; border-radius: 8px; border: 1px solid #222; }
+
+canvas { background: #000; border: 2px solid var(--red); width: 100%; border-radius: 4px; box-shadow: 0 0 15px rgba(255, 49, 49, 0.2); }
+
+#sidesInput {
+    width: 90%; background: #000; color: var(--red); border: 1px solid #444; padding: 12px; 
+    font-size: 1.2rem; text-align: center; border-radius: 4px; margin: 10px 0;
+}
+
+.danger-btn { width: 100%; padding: 10px; background: transparent; color: var(--red); border: 1px dashed var(--red); cursor: pointer; font-weight: bold; }
+.danger-btn:hover { background: var(--red); color: white; }
+
+.archi-container { position: relative; width: 180px; margin: 0 auto; }
+#archiImg { width: 100%; border-radius: 8px; filter: grayscale(1); transition: 0.3s; }
+.archi-glow { filter: grayscale(0) drop-shadow(0 0 15px var(--red)) !important; }
+
+.speech-bubble { position: absolute; top: -10px; right: -30px; background: var(--red); padding: 5px; border-radius: 5px; font-size: 0.7rem; font-weight: bold; z-index: 5; }
+
+.fourth-wall-box { border-left: 4px solid var(--red); background: #050505; padding: 10px; margin: 15px 0; }
+.progress-bar { background: #222; height: 8px; border-radius: 4px; margin: 10px 0; overflow: hidden; }
+#progressFill { background: var(--red); height: 100%; width: 0%; transition: 0.3s; }
+
+/* DOOM & OVERLAYS */
+#doom-stage { position: fixed; inset: 0; background: #000; z-index: 9999; display: flex; flex-direction: column; }
+.doom-header { background: #1a0000; padding: 10px; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #f00; }
+.doom-text { color: #f00; font-family: 'Teko', sans-serif; margin: 0; font-size: 2rem; }
+#doom-frame-container { flex-grow: 1; }
+#doom-iframe { width: 100%; height: 100%; border: none; }
+
+.fullscreen-overlay { position: fixed; inset: 0; z-index: 10000; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+.glitch-bg { background: #000; color: var(--red); animation: flash-red 0.1s infinite; }
+.bsod-bg { background: #0000aa; color: #fff; align-items: flex-start; padding: 50px; text-align: left; }
+.historical-bg { background: #f2e8c9; color: #3b2b1a; padding: 30px; }
+
+@keyframes flash-red { 0% { background: #000; } 50% { background: #100; } }
+.blink { animation: blinker 1s linear infinite; }
+@keyframes blinker { 50% { opacity: 0; } }
