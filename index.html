@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aproximando π | Deadpool Style</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app-container">
+        <div class="visual-panel">
+            <h1 class="glitch" data-text="Aproximando π">Aproximando π</h1>
+            <div class="canvas-container">
+                <canvas id="mathCanvas" width="450" height="450"></canvas>
+            </div>
+            
+            <div class="controls">
+                <label for="sidesSlider">Lados del Polígono: <span id="sidesDisplay" class="neon-text">3</span></label>
+                <input type="range" id="sidesSlider" min="3" max="500" value="3">
+            </div>
+
+            <div class="stats">
+                <p>π Aproximado: <span id="piApprox" class="neon-text">3.000000000</span></p>
+                <p>π Real: <span class="muted">3.141592653...</span></p>
+                <p>Error Absoluto: <span id="piError">0.141592653</span></p>
+            </div>
+            
+            <button id="crashBtn" class="danger-btn">⚠️ NO TOCAR (Sobrecarga de Polígonos)</button>
+        </div>
+
+        <div class="narrative-panel">
+            <div class="archi-container" id="archiContainer">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Domenico-Fetti_Archimedes_1620.jpg/400px-Domenico-Fetti_Archimedes_1620.jpg" alt="Arquímedes" id="archiImg">
+                <div class="graffiti glasses" id="gGlasses">👓</div>
+                <div class="graffiti mustache" id="gMustache">〰️</div>
+                <div class="speech-bubble" id="archiSpeech">Eureka, baby.</div>
+            </div>
+
+            <div class="fourth-wall-box">
+                <h3>💬 Terminal de Sarcasmo</h3>
+                <p id="systemComment">Iniciando protocolo...</p>
+            </div>
+
+            <div class="obsession-meter">
+                <h3 id="obsessionTitle">Nivel 1: Modo Cavernícola</h3>
+                <div class="progress-bar"><div id="progressFill"></div></div>
+                <p id="obsessionDesc">Formas puntiagudas. Fuego bueno.</p>
+            </div>
+
+            <div class="edu-section">
+                <h3>🧠 Para los Estudiantes (y Nerds)</h3>
+                <p><strong>¿Qué hizo Arquímedes?</strong> Metió polígonos dentro de un círculo. Entre más lados tiene el polígono, más se parece al círculo.</p>
+                <p><strong>¿Cómo funciona?</strong> Cortamos el polígono en triangulitos. Usamos trigonometría básica para hallar el borde: <br> <code class="formula">Lado = 2r × sin(π/n)</code></p>
+                <p><strong>Convergencia:</strong> Multiplicamos el lado por el número de lados (n). Al dividir eso entre el diámetro, ¡PUM!, te acercas a Pi. Entre más lados, menor es el "Error".</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="historicalOverlay" class="hidden fullscreen-overlay historical-bg">
+        <h1 id="histTitle"></h1>
+        <p id="histBody"></p>
+        <p class="hist-math">$\pi \approx \frac{\text{Perímetro}}{2r}$</p>
+    </div>
+
+    <div id="rickRollOverlay" class="hidden fullscreen-overlay glitch-bg">
+        <h1 class="glitch-text">UNA LETRA CAMBIA LA HISTORIA.</h1>
+        <h2 class="glitch-text">ELEGISTE MAL.</h2>
+    </div>
+
+    <div id="bsodOverlay" class="hidden fullscreen-overlay bsod-bg">
+        <p>A problem has been detected and reality has been shut down to prevent damage to your brain.</p>
+        <p>POLYGON_OVERFLOW_EXCEPTION</p>
+        <p>If this is the first time you've seen this Stop error screen, restart your geometry class. If this screen appears again, follow these steps:</p>
+        <p>Check to make sure any new slider is properly configured. If this is a new math problem, ask your system administrator for a calculator.</p>
+        <p>Technical information:</p>
+        <p>*** STOP: 0x000000314 (0xPI, 0x00000000, 0x00000000, 0x00000000)</p>
+        <p class="blink">Reiniciando simulación en 3... 2... 1...</p>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
